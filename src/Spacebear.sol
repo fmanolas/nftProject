@@ -1,11 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/access/Ownable.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
-import "hardhat/console.sol";
+import "openzeppelin-contracts/contracts/token/ERC721/ERC721.sol";
+import "openzeppelin-contracts/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
+import "openzeppelin-contracts/contracts/access/Ownable.sol";
+import "openzeppelin-contracts/contracts/utils/Counters.sol";
 contract Spacebear is ERC721, ERC721URIStorage, Ownable {
     using Counters for Counters.Counter;
 
@@ -16,10 +15,15 @@ contract Spacebear is ERC721, ERC721URIStorage, Ownable {
     function _baseURI() internal pure override returns (string memory) {
         return "https://ethereum-blockchain-developer.com/2022-06-nft-truffle-hardhat-foundry/nftdata/";
     }
+ function buyToken() public payable {
+        uint256 tokenId = _tokenIdCounter.current();
+        require(msg.value == tokenId * 0.1 ether, "Not enough funds sent");
 
+        _tokenIdCounter.increment();
+        _safeMint(msg.sender, tokenId);
+    }
     function safeMint(address to, string memory uri) public onlyOwner {
         uint256 tokenId = _tokenIdCounter.current();
-         console.log("We got here",tokenId);
         _tokenIdCounter.increment();
         _safeMint(to, tokenId);
         _setTokenURI(tokenId, uri);
