@@ -1,66 +1,22 @@
-## Foundry
+# NFT Project
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+In this project we create and deploy an NFT with three different Frameworks:
 
-Foundry consists of:
+* Truffle
+* Hardhat
+* Foundry
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+For each we showcase how to write a unit-test and how to deploy the contracts using the Framework scripting functionality.
 
-## Documentation
+## Authors
 
-https://book.getfoundry.sh/
+- [@fmanolas](https://www.github.com/fmanolas)
+Referenced By:
+- [Ethereum Blockchain Developer](https://ethereum-blockchain-developer)
 
-## Usage
 
-### Build
+## Features
 
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+- Truffle: OpenZeppelin NPM, Unit Testing with Ganache and Console.log and Migrations
+- Hardhat: OpenZeppelin NPM, Unit Testing with Console Log with Hardhat Node and a deploy Script
+- Foundry: OpenZeppelin Git Submodule, Forge Unit Testing, Forge Scripting
